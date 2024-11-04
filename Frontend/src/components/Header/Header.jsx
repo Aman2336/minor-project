@@ -127,6 +127,7 @@ const Header = () => {
             )}
           </div>
           <div className="flex itmes-center gap-4">
+            {console.log(token, user)}
             {token && user ? (
               <div className="flex items-center" id="step4">
                 <Link
@@ -143,11 +144,11 @@ const Header = () => {
                     <img
                       src={user?.photo}
                       className="w-full rounded-full"
-                      alt=""
+                      alt="Profile"
                     />
                   </figure>
                 </Link>
-                {role === "admin" && (
+                {role !== "admin" && (
                   <button
                     className="w-full bg-primaryColor p-3 text-[16px] leading-7 rounded-md text-white ml-2"
                     onClick={handleLogout}
