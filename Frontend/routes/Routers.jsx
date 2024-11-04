@@ -1,4 +1,3 @@
-import React from "react";
 import Home from "../src/pages/Home";
 import Services from "../src/pages/Services";
 import Login from "../src/pages/Login";
