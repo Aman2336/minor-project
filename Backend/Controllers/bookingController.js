@@ -59,7 +59,7 @@ export const createBooking = async (req, res) => {
 
 const zoomMeet = async (did) => {
   try {
-    // console.log(process.env.ZOOM_REFRESH_TOKEN);
+    console.log(process.env.ZOOM_REFRESH_TOKEN);
     const params = new url.URLSearchParams({
       grant_type: "refresh_token",
       refresh_token: `${process.env.ZOOM_REFRESH_TOKEN}`,
@@ -72,8 +72,9 @@ const zoomMeet = async (did) => {
       {
         headers: {
           "Content-Type": "application/x-www-form-urlencoded",
-          Authorization:
-            "Basic MW1yZnZpYVRUNkdETEk3alVOR25wZzpUN0ZnOFhFOUM2VXlPcVh4aEJkZGY1eHFRSlRDSnBzSg",
+          Authorization: `Basic ${Buffer.from(
+            `${ZOOM_CLIENT_ID}:${ZOOM_CLIENT_SECRET}`
+          ).toString("base64")}`,
         },
       }
     );

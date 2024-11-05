@@ -108,6 +108,7 @@ const SidePanel = ({ doctorId, ticketPrice, timeSlots }) => {
         alert(res.msg);
       }
     } catch (err) {
+      console.log(err.message);
       toast.error(err.message);
     }
   };
