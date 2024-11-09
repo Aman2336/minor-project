@@ -100,7 +100,7 @@ const Header = () => {
       <div className="container">
         <div className="flex items-center justify-between">
           <div>
-            <img src={logo} alt="" className="h-[200px] w-[200px]" />
+            <img src={logo} alt="" className="h-[100px] w-[100px]" />
           </div>
           <div className="navigation one" ref={menuRef} onClick={toggleMenu}>
             {role !== "admin" ? (
