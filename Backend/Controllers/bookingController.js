@@ -4,6 +4,7 @@ import Booking from "../models/BookingSchema.js";
 import Razorpay from "razorpay";
 import url from "url";
 import axios from "axios";
+import { v4 as uuidv4 } from "uuid";
 
 const razorpayInstance = new Razorpay({
   key_id: "rzp_test_xc7S1DH28iB6RI",
@@ -41,21 +42,20 @@ export const createBooking = async (req, res) => {
   });
 };
 
-// async function refreshAccessToken() {
-//   try {
+async function refreshAccessToken() {
+  try {
+    const newRefreshToken = response.data.refresh_token;
 
-//     const newRefreshToken = response.data.refresh_token;
+    // Update environment variables with new tokens
+    process.env.REACT_APP_ZOOM_AT = newAccessToken;
+    process.env.ZOOM_REFRESH_TOKEN = newRefreshToken;
 
-//     // Update environment variables with new tokens
-//     process.env.REACT_APP_ZOOM_AT = newAccessToken;
-//     process.env.ZOOM_REFRESH_TOKEN = newRefreshToken;
-
-//     console.log("Access token refreshed successfully");
-//   } catch (error) {
-//     console.error("Error refreshing access token:");
-//     throw error;
-//   }
-// }
+    console.log("Access token refreshed successfully");
+  } catch (error) {
+    console.error("Error refreshing access token:");
+    throw error;
+  }
+}
 
 const zoomMeet = async (did) => {
   try {
@@ -119,9 +119,46 @@ const zoomMeet = async (did) => {
   }
 };
 
+// export const newBooking = async (req, res) => {
+//   const { did, uid, price, timeSlot } = req.body;
+//   try {
+//     const isAlreadyBooked = await Booking.findOne({
+//       doctor: did,
+//       timeSlot: timeSlot,
+//     });
+//     if (isAlreadyBooked) {
+//       return res
+//         .status(400)
+//         .json({ success: false, message: "Time slot is already booked" });
+//     }
+
+//     const { start_url, join_url } = await zoomMeet(did);
+//     // console.log(start_url, join_url);
+
+//     const booking = new Booking({
+//       doctor: did,
+//       user: uid,
+//       ticketPrice: price,
+//       timeSlot: timeSlot,
+//       start_url,
+//       join_url,
+//     });
+
+//     await booking.save();
+
+//     // Remove booked time slot from the database
+//     await Doctor.findByIdAndUpdate(did, { $pull: { timeSlots: timeSlot } });
+
+//     res.status(200).json({ success: true, message: "Booking Done" });
+//   } catch (error) {
+//     res.status(400).json({ success: false, message: "Something Went Wrong" });
+//   }
+// };
+
 export const newBooking = async (req, res) => {
   const { did, uid, price, timeSlot } = req.body;
   try {
+    // Check if time slot is already booked
     const isAlreadyBooked = await Booking.findOne({
       doctor: did,
       timeSlot: timeSlot,
@@ -132,9 +169,12 @@ export const newBooking = async (req, res) => {
         .json({ success: false, message: "Time slot is already booked" });
     }
 
-    const { start_url, join_url } = await zoomMeet(did);
-    // console.log(start_url, join_url);
+    // Generate unique Jitsi meeting URLs
+    const meetingId = uuidv4(); // Generate unique ID for the meeting
+    const join_url = `https://meet.jit.si/${meetingId}`; // Patient join URL
+    const start_url = join_url; // Doctor start URL (same for Jitsi)
 
+    // Create the booking with Jitsi meeting links
     const booking = new Booking({
       doctor: did,
       user: uid,
@@ -146,11 +186,21 @@ export const newBooking = async (req, res) => {
 
     await booking.save();
 
-    // Remove booked time slot from the database
+    // Remove booked time slot from the doctor's availability
     await Doctor.findByIdAndUpdate(did, { $pull: { timeSlots: timeSlot } });
 
-    res.status(200).json({ success: true, message: "Booking Done" });
+    res
+      .status(200)
+      .json({ success: true, message: "Booking Done", start_url, join_url });
   } catch (error) {
+    console.error("Error creating booking:", error);
     res.status(400).json({ success: false, message: "Something Went Wrong" });
   }
 };
+
+// const zoomMeet = async (did) => {
+//   return {
+//     start_url: `https://dummy-zoom-url.com/start-${did}`,
+//     join_url: `https://dummy-zoom-url.com/join-${did}`,
+//   };
+// };
