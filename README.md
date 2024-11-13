@@ -5,7 +5,7 @@
     <img src="Frontend/src/assets/images/logo2.png" alt="Logo" background-color: red width="220" height="100">
   </a>
 
-  <h3 align="center">MediEase</h3>
+  <h3 align="center">MindCradle</h3>
 
   <p align="center">
     Virtual Telemedicine platform for enhanced Medical care <br> and Record
@@ -14,7 +14,7 @@ Management
 <!--     <a href=""><strong> Explore Project Documentation »</strong></a> -->
 <!--     <br /> -->
     <br />
-    <a href="https://drive.google.com/drive/u/1/folders/1_MmmGY_l7jJktSG3VWPnL3c9qgJIzIWO">Watch Insights »</a>
+    <!-- <a href="https://drive.google.com/drive/u/1/folders/1_MmmGY_l7jJktSG3VWPnL3c9qgJIzIWO">Watch Insights »</a> -->
 
   </p>
 </div>
@@ -22,9 +22,9 @@ Management
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-### Project Overview: MediEase 
+### Project Overview: MindCradle
 
-MediEase is an innovative solution designed to overcome geographical constraints, bridge language divides, streamline medical record management, and improve medication adherence. 
+MindCradle is an innovative solution designed to overcome geographical constraints, bridge language divides, streamline medical record management, and improve medication adherence. 
 By integrating advanced technologies such as remote consultation services, multilingual support, secure record storage, 
 and personalized medication reminders, our platform aims to revolutionize healthcare delivery.
 
