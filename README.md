@@ -52,28 +52,24 @@ and personalized medication reminders, our platform aims to revolutionize health
 <p align="center"><em>Services</em></p>
  </div>
  <br>
-<div align="center">
-<img align="center" src="Frontend/src/assets/images/find_doctor.png" alt="Find Doctor" width="550" height="300">
-<p align="center"><em>Doctor's List</em></p>
- </div>
 <br>
 <div align="center">
-<img align="center" src="Frontend/src/assets/images/user_appoint.png" alt="User Appointment" width="550" height="300">
+<img align="center" src="Frontend/src/assets/images/docprofile.png" alt="User Appointment" width="550" height="300">
 <p align="center"><em>User Appointment History</em></p>
  </div>
  <br>
 <div align="center">
-<img align="center" src="Frontend/src/assets/images/user_setting.png" alt="User Profile" width="550" height="300">
+<img align="center" src="Frontend/src/assets/images/userprofile.png" alt="User Profile" width="550" height="300">
 <p align="center"><em>User Profile</em></p>
  </div>
  <br>
  <div align="center">
-<img align="center" src="Frontend/src/assets/images/doct_info.png" alt="Doctor Info" width="550" height="300">
+<img align="center" src="Frontend/src/assets/images/docprofile.png" alt="Doctor Info" width="550" height="300">
 <p align="center"><em>Doctor Info</em></p>
  </div>
  <br>
  <div align="center">
-<img align="center" src="Frontend/src/assets/images/doct_appoint.png" alt="Doctor Appointment" width="550" height="300">
+<img align="center" src="Frontend/src/assets/images/meet.png" alt="Doctor Appointment" width="550" height="300">
 <p align="center"><em>Doctor Appointment History</em></p>
  </div>
  <br>
