@@ -74,13 +74,13 @@ and personalized medication reminders, our platform aims to revolutionize health
  </div>
  <br>
 <div align="center">
-<img align="center" src="Frontend/src/assets/images/doct_profile.png" alt="Doctor Profile" width="550" height="300">
+<img align="center" src="Frontend/src/assets/images/docprofile.png" alt="Doctor Profile" width="550" height="300">
 <p align="center"><em>Doctor Profile</em></p>
  </div>
  <br>
  <br>
  <div align="center">
-<img align="center" src="Frontend/src/assets/images/admin_dashboard2.png" alt="admin_dashboard2" width="550" height="300">
+<img align="center" src="Frontend/src/assets/images/admindash.png" alt="admin_dashboard2" width="550" height="300">
 <p align="center"><em>List of all Verified Doctors</em></p>
  </div>
  <br>
